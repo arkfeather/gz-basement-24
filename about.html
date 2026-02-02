@@ -9,51 +9,46 @@
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <script type="text/javascript" src="/mouseover.js"></script>
   </head>
   <body>
     <div class="main">
+        <div class="logo">
+            <a href="index.html"><img src="images/logoSpin.gif"></a>
+        </div>
 
-  <div id="nav_about" class="nav_about" style="background-image:url(/images/about.jpg); background-color: none;">
-  
-    <div id="nav_text_other" class="nav_text_other"> 
-      	<a href="index.html" class="navlink"><b>home</b></a> 
-      	<a href="about.html" class="navlink">about</a> 
-      	<a href="events.html" class="navlink"><b>events</b></a>
-      	<a href="photos.html" class="navlink"> photos </a>
-      	<a href="people.html" class="navlink"><b>people</b></a>
-    </div>
-    
-  </div>
+      <div class="nav" style="background-image:url(/images/about.jpg); background-color: none;">
+        <div id="nav_text_other" class="nav_text_other"> 
+            <script type="text/javascript" src="nav.js"></script>
+        </div>
+      </div>
   
   <div class="sidebar">
-  
-  <div id="directions" class="directions">
-  
-  	<h2>directions</h2>
-	Ground Zero is located on the RPI campus.</a><br><br>
-	
-	<br>If you're coming from off campus, follow these directions to get to RPI<br>
-	<ul style="list-style: none;">
-	<li><a href="#" onclick="popup_directions('/directions/nrpi.html')">...from the North</a></li>
-	<li><a href="#" onclick="popup_directions('/directions/nerpi.html')">...from the Northeast</a></li>
-	<li><a href="#" onclick="popup_directions('/directions/srpi.html')">...from the South</a></li>
-	<li><a href="#" onclick="popup_directions('/directions/erpi.html')">...from the East</a></li>
-	<li><a href="#" onclick="popup_directions('/directions/wrpi.html')">...from the West</a></li>
-	</ul><!--<br>
-	<b>Then, follow these directions from 15th Street</b><br>
-	Continue down 15th street, and make a left at the 4th light ( it's the Blinking Yellow light, right after the pedestrian foot bridge) onto Bouton Rd. Drive past the baseball field and make a slight left into the parking lot on Willard Rd, which is right next to some tennis courts.<br>
-  --></div>
-  
-  
-   <div id="join" class="join">
-   <!-- Mailing list is deprecated:
-  		<h2>stay updated</h2>
- 		Enter your e-mail to join our mailing list!<br> <br>
-  		<input type="text" id="txtEmail">&nbsp;&nbsp;
-		<input type="submit" value="Submit" onclick="javascript:fnSubmitEmailForList()" ;="">
-  --></div>
-  
+        <div id="directions" class="directions">
+            <h2 color="#00A66E">directions</h2>
+            Ground Zero typically hosts meetings in Mother's at the RPI student union.
+            <br><br>
+            Please check our Discord or the <a href="/events.html">Events</a> page for more information.<br><br>
+
+            <center>
+                <iframe width="95%" rameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Rensselaer%20Union,%201761%2015th%20St,%20Troy,%20NY%2012180+(GZ%20Basement)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                </iframe>
+            </center>
+        </div>
+      
+      <div class="socials">
+        <h2>socials</h2>
+        <hr class="separator">
+        You can find us on...<br><br>
+
+        <center>
+            <img src="/images/gzbutton.png" style="border: 1px solid white">
+            <a href="https://www.instagram.com/gzbasement" target="_blank" rel="noopener noreferrer"><img src="/images/instagram-follow-button-png-1.png"></a>
+            <a href="https://twitter.com/gzbasement" target="_blank" rel="noopener noreferrer"><img src="/images/follow-us-on-twitter.png"></a>
+            <a href="https://www.youtube.com/@GroundZeroBasement" target="_blank" rel="noopener noreferrer"><img src="/images/Watch-us-on-Youtube.jpg"></a>
+            <a href="https://open.spotify.com/user/h18sgxrjfza3ba6xjwbu9t5jl?si=036efcca128e4593" target="_blank" rel="noopener noreferrer"><img src="/images/listen-on-spotify-button.png"></a>
+            <a href="https://gzbasement.bandcamp.com" target="_blank" rel="noopener noreferrer"><img src="/images/bandcamp.jpg"></a>
+        </center>
+      </div>
   </div>
   
 	
@@ -61,12 +56,14 @@
     <div id="about_main" class="main_section">
 		
 				<h2>about</h2>
+                <hr class="separator">
 		
-		Ground Zero (GZ) is a student-run organization dedicated to promoting music and art at <a href="https://www.rpi.edu/" target="_blank">Rensselaer Polytechnic Institute</a> of Troy, NY. We run an on-campus music venue where we hold open mics, film fests, art shows and other events throughout the school year. As a club independent of the RPI Student Union, our activities are funded by member dues, event income, fundraising and donations alone.
-			
-		<br><br>
+		Ground Zero (GZ) is a student-run organization dedicated to promoting music and art at <a href="https://www.rpi.edu/" target="_blank">Rensselaer Polytechnic Institute</a> of Troy, NY. We run an on-campus music venue where we hold open mics, film fests, art shows and other events throughout the school year. As a club independent of the RPI Student Union, our activities are funded by event income, fundraising, and donations alone.<br><br>
+        
+        If you are interested in learning more, check out one of our events or follow us on social media!<br><br>
 		
 		<h2>history</h2>
+        <hr class="separator">
 		
 			Ground Zero was founded in the spring of 2001 as a cooperative project between the <a href="https://reslife.rpi.edu/" target="_blank">Office of Student Living and Learning</a> and a group of students who wanted to introduce the concept of "Theme Housing" to RPI. Theme housing, which typically takes a group of students with a similar interest and places them together in regular school housing, is seen as a solution to the problem that upperclassmen residence halls lack the sense of community and liveliness found in freshmen residence halls. <br><br>
 			The founding members of Ground Zero felt that the musical and artistic scenes on campus were lacking, so they decided to focus their theme house on those ideas. The group named itself "Ground Zero" to portray the organization as a central point of activity on campus. Nugent Hall was selected as the site of Ground Zero, and plans were implemented to turn it into a student-run venue. <br><br>
@@ -80,7 +77,6 @@
 
 </div>
  
-</body>
-  <center><p><img src="/images/constructionsmall.gif"></p></center>
+  <center><p><img src="/images/walking_sh_sibe.gif" style="width:50px; "></p></center>
   </body>
 </html>
