@@ -9,196 +9,312 @@
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
     <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <script type="text/javascript" src="/mouseover.js"></script>
-    <script type="text/javascript">
-<!--
-	var xmlHttp;
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-	function changeThumbnails(start)
-	{ 
-		xmlHttp=GetXmlHttpObject();
-		if (xmlHttp==null)
-	 	{
-	 		alert ("Browser does not support HTTP Request");
-	 		return;
-	 	}
-		
-		var url="/thumbnails.php?folder=Slow Six and Lymbyc Systym";
-		url = url + "&start=" + start + "&length=3";
-		
-		xmlHttp.onreadystatechange=stateChanged 
-		xmlHttp.open("GET",url,true)
-		xmlHttp.send(null)
-	}
-	
-	function getNextPhoto()
-	{
-		xmlHttp=GetXmlHttpObject();
-		if (xmlHttp==null)
-	 	{
-	 		alert ("Browser does not support HTTP Request");
-	 		return;
-	 	}
-	
-		var url = "/next_photo.php";
-		var params = "folder=Slow Six and Lymbyc Systym&current_photo=";
-		params = params + document.getElementById("display_image").src;
-		document.getElementById("main_heading").innerHTML = "photos <span class=\"success_message\">loading...</span>";
-		
-		xmlHttp.onreadystatechange=loadNextPhoto;
-		xmlHttp.open("POST", url, true);
-		//Send the proper header information along with the request
-		xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		xmlHttp.setRequestHeader("Content-length", params.length);
-		xmlHttp.setRequestHeader("Connection", "close");
-		xmlHttp.send(params);
-	}
-	
-	function loadNextPhoto()
-	{
-		if(xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-		{
-			var response = xmlHttp.responseText;
-			
-			if(response != "")
-			{
-				var retvals = response.split(",");
-				document.getElementById("display_image").src = retvals[0];
-				changeThumbnails(retvals[1]);
-			} 
-			else
-				document.getElementById("main_heading").innerHTML = "photos";
-		}
-	}
-
-	function stateChanged() 
-	{ 
-		if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")
-		{
-	 		document.getElementById("thumbnails").innerHTML = xmlHttp.responseText
-			document.getElementById("main_heading").innerHTML = "photos";
-		} 
-	}
-
-	function GetXmlHttpObject()
-	{
-		var xmlHttp=null;
-		try
-		{   // Firefox, Opera 8.0+, Safari
-		 	xmlHttp=new XMLHttpRequest();
-		}
-		catch (e)
-		{
-			//Internet Explorer
-		 	try {xmlHttp=new ActiveXObject("Msxml2.XMLHTTP"); }
-		 	catch (e) { xmlHttp=new ActiveXObject("Microsoft.XMLHTTP"); }
-		 }
-		return xmlHttp;
-	}
-	
-	function changeDisplayImage(file)
-	{
-		document.getElementById("display_image").src = file;
-	}
-	
-	-->
-</script>
   </head>
   <body>
 <div class="main">
-
-  <div id="nav_photos" class="nav_photos" style="background-image:url(/images/photos.jpg); background-color: none;">
-  
-    <div id="nav_text_other" class="nav_text_other"> 
-      	<a href="index.html" class="navlink"><b>home</b></a> 
-      	<a href="about.html" class="navlink">about</a> 
-      	<a href="events.html" class="navlink"><b>events</b></a>
-      	<a href="photos.html" class="navlink"> photos </a>
-      	<a href="people.html" class="navlink"><b>people</b></a>
+    <div class="logo">
+        <a href="index.html"><img src="images/logoSpin.gif"></a>
     </div>
-    
+
+  <div class="nav" style="background-image:url(/images/photos.jpg); background-color:none;">
+    <div id="nav_text_other" class="nav_text_other"> 
+        <script type="text/javascript" src="nav.js"></script>
+    </div>
   </div>
   
   <div class="sidebar">
   
 	  <div id="event_select" class="event_select">
-  
 	  	<h2>select an event</h2>
-		<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Slow Six and Lymbyc Systym">Slow Six and Lymbyc Systym</a></div>
-<div class="photo_set_date">4/17/10</div>
+        <hr class="separator">
+          
+        <details open style="margin-bottom: 0;">
+            <summary>2024</summary>
+            <div class="details_container">
+      
+                <div class="photo_set_name" onclick="replaceElement(event, 'pip_yort_bn')" id="defaultOpen">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    PIP, Yort, &amp; Beez Nutz <span class="photo_set_date">- 1/12/24</span>
+                </div>
+            </div>
+        </details>
+        <br>
+        <details>
+            <summary>2022-2023</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'aq_hc_tbr')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Andro Queen, Haunted Cat, &amp; Tandem Bike Riders <span class="photo_set_date">- 11/18/23</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_oct_2023')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic October <br> 2023 <span class="photo_set_date">- 10/20/23</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'music_swap')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Music Swap <span class="photo_set_date">- 9/18/23</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_april_2023')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic April 2023 <span class="photo_set_date">- 4/21/23</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'stickers')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Sticker Making Party <span class="photo_set_date">- 1/26/23</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_april_2022')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic April 2022 <span class="photo_set_date">- 4/1/22</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_march_2022')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic March 2022 <span class="photo_set_date">- 3/2/22</span>
+                </div>
+            </div>
+            <br class="clear">
+        </details>
+           
+        <details>
+            <summary>2020-2021</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'jazz_soiree')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Jazz Soirée <span class="photo_set_date">- 12/3/21</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'sunglass_painting')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Sunglass Painting <span class="photo_set_date">- 10/8/21</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_sept_2021')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic September <br> 2021 <span class="photo_set_date">- 9/24/21</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'open_mic_may_2021')"> <!--file name is wrong bc I misread the date LOL, should be april-->
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Open Mic April 2021 <span class="photo_set_date">- 4/24/21</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'never_show')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    the show that never <br> happened <span class="photo_set_date">- 2/29/20</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'sharkboy_lavagirl')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Sharkboy &amp; Lavagirl Movie Night <span class="photo_set_date">- 2/8/20</span>
+                </div>
+                
+                <div class="photo_set_name" onclick="replaceElement(event, 'jazz_show')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Jazz Show <span class="photo_set_date">- 1/18/20</span>
+                </div>
+            </div>
+            <br class="clear">
+        </details>
+        
+        <details>
+            <summary>2009-2010</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'slow_six_lymbyc_systym')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Slow Six &amp; Lymbyc <br> Systym <span class="photo_set_date">- 4/17/10</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Adrian Aardvark">Adrian Aardvark</a></div>
-<div class="photo_set_date">3/22/09</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'adrian_aardvark')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Adrian Aardvark <span class="photo_set_date">- 3/22/09</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Epic Fest">Epic Fest</a></div>
-<div class="photo_set_date">2/28/09</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'epic_fest')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Epic Fest <span class="photo_set_date">- 2/28/09</span>
+                </div>
+            </div>
+            <br class="clear">
+        </details>
+          
+        <details>
+            <summary>2008</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'via_audio')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Via Audio <span class="photo_set_date">- 9/13/08</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Via Audio">Via Audio</a></div>
-<div class="photo_set_date">9/13/08</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'slow_six')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Slow Six <span class="photo_set_date">- 4/12/08</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=SlowSix">Slow Six</a></div>
-<div class="photo_set_date">4/12/08</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'capillary_action')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Capillary Action &amp; PWRFL Power <span class="photo_set_date">- 2/23/08</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=SgtDunbar">Sgt. Dunbar and the Hobo Banned</a></div>
-<div class="photo_set_date">3/01/08</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'action_painters')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Action Painters <span class="photo_set_date">- 2/16/08</span>
+                </div>
+            </div>
+            <br class="clear">
+        </details>
+        
+        <details>
+            <summary>2006-2007</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'TNO_April_2007')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Troy Night Out April <br> 2007 <span class="photo_set_date">- 4/27/07</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=CapillaryAction">Capillary Action &amp; PWRFL Power</a></div>
-<div class="photo_set_date">2/23/08</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'felice_brothers')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    The Felice Brothers <span class="photo_set_date">- 10/13/06</span>
+                </div>
+             </div>
+            <br class="clear">
+        </details>
+        
+        <details>
+            <summary>2004-2005</summary>
+            <div class="details_container">
+                <div class="photo_set_name" onclick="replaceElement(event, 'dead_science')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    The Dead Science <span class="photo_set_date">- 10/29/05</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=ActionPainters">Action Painters</a></div>
-<div class="photo_set_date">2/16/08</div>
+                <div class="photo_set_name" onclick="replaceElement(event, 'battles')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Battles <span class="photo_set_date">- 11/11/04</span>
+                </div>
 
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=April-TNO-2007">Troy Night Out April 2007</a></div>
-<div class="photo_set_date">4/27/07</div>
-
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Felice Brothers-Drew-SeaGlass">The Felice Brothers</a></div>
-<div class="photo_set_date">10/13/06</div>
-
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=DeadScienceFirstTime">The Dead Science</a></div>
-<div class="photo_set_date">10/29/05</div>
-
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Battles-POTOTSOLATTTJ-Benjikope">Battles</a></div>
-<div class="photo_set_date">11/11/04</div>
-
-<div class="photo_set_name"><span class="black_pluses"> +&nbsp;&nbsp;</span><a href="photos.html?folder=Japanther-POTOTSOLATTTJ">Japanther and POTOTSOLATTTJ</a></div>
-<div class="photo_set_date">10/02/04</div>
-
-
-		<br class="clear"><br>
+                <div class="photo_set_name" onclick="replaceElement(event, 'japanther')">
+                    <span class="white_pluses"> +&nbsp;&nbsp;</span>
+                    Japanther &amp; <br> POTOTSOLATTTJ <span class="photo_set_date">- 10/02/04</span>
+                </div>
+            </div>
+            <br class="clear">
+        </details>
 	  </div>  
-  
-	   <div id="join" class="join">
- 	              <!--
-            <h2>stay updated</h2>
-	 		Enter your e-mail to join our mailing list!<br> <br>
-	  		<input type="text" id="txtEmail">&nbsp;&nbsp;
-			<input type="submit" value="Submit" onclick="javascript:fnSubmitEmailForList();">
- 		    -->
-	  </div>
-  
   </div>
   
-  <div id="photos_main" class="main_section">
+    <div id="photos_main" class="main_section">
 		<h2 id="main_heading">photos</h2>
- 	    <span>
-  	    Note from Webmaster: Gallery not yet functional.
-   	    </span>
+        <hr class="separator">
+      
+      <!-- 
+            NOTE FROM WEBMASTER:
+                The div below is replaced via JS that loads in separate HTML files for readability and to shorten the length of this HTML file.
+                This is a very tedious and inefficient way to load in the gallery imgs (esp as you have to create the .html files by hand) for each tab but without PHP or node.js (github does not support server-side languages) I cannot think of a better way to execute this. To any future webmasters I apologize for this T_T
+      -->
 
-		<div style="width: 460px; text-align: center; padding: 0; margin-left: -1px;">	
-			<a href="javascript:getNextPhoto();"><img src="https://gzbasement.com/event_photos/Slow Six and Lymbyc Systym/IMG_6340.jpg" class="display_image" id="display_image"></a>
-		
-		</div>
-		
-		<span id="thumbnails" name="thumbnails">
-			<div class="thumbnail_arrow">&nbsp;</div><div class="thumbnails"><a href="javascript:changeDisplayImage('/event_photos/Slow Six and Lymbyc Systym/IMG_6340.jpg');"><img src="https://gzbasement.com/event_photos/Slow Six and Lymbyc Systym/thumbs/IMG_6340.jpg" class="thumbnail">&nbsp;</a><a href="javascript:changeDisplayImage('/event_photos/Slow Six and Lymbyc Systym/IMG_6364.jpg');"><img src="https://gzbasement.com/event_photos/Slow Six and Lymbyc Systym/thumbs/IMG_6364.jpg" class="thumbnail">&nbsp;</a><a href="javascript:changeDisplayImage('/event_photos/Slow Six and Lymbyc Systym/IMG_6372.jpg');"><img src="https://gzbasement.com/event_photos/Slow Six and Lymbyc Systym/thumbs/IMG_6372.jpg" class="thumbnail">&nbsp;</a></div><div class="thumbnail_arrow"><a href="javascript:changeThumbnails(3);"><span style="font-size: 36px;">»</span></a></div>		</span>
-		<br style="clear: both;">
-		<div class="event_desc"><b>Description: </b>
-			Slow Six + Lymbyc Systym + Severe Severe. Holy sh*t, so good. Good pix too. 		</div><br>
-  </div>
-
+            <div class="photo_container" id="gallery"><!--Imported HTML goes here--></div>
+    </div>
 </div>
 
+<script>
+    document.getElementById("defaultOpen").click();
+    
+    //each tab will replace the contents of #gallery with html from separate HTML files
+    function replaceElement(evt, eventName) {
+        document.getElementById('gallery').innerHTML = ''; //clear previous gallery
+        
+        //create new photo_container element and add an id matching the eventName given in the function
+        var newElement = document.createElement('div');
+        newElement.setAttribute("class", "photo_container")
+        newElement.setAttribute("id", eventName)
+        document.getElementById('gallery').appendChild(newElement);
+        
+        //Stuff for tab cosmetics
+            // Get all tabs and remove the class "on"
+              tablinks = document.getElementsByClassName("photo_set_name");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" on", "");
+              }
+            // Add an "on" class to the button that opened the tab
+              evt.currentTarget.className += " on";
+        
+        //html files are loaded here
+            //2024
+                $("#art_market").load("/concert_gallery/art_market.html");
+                $("#pip_yort_bn").load("/concert_gallery/pip_yort_bn.html");
+            //2022-2023
+                $("#aq_hc_tbr").load("/concert_gallery/aq_hc_tbr.html");
+                $("#open_mic_oct_2023").load("/concert_gallery/open_mic_oct_2023.html");
+                $("#music_swap").load("/concert_gallery/music_swap.html");
+                $("#open_mic_april_2023").load("/concert_gallery/open_mic_april_2023.html");
+                $("#stickers").load("/concert_gallery/stickers.html");
+                $("#open_mic_april_2022").load("/concert_gallery/open_mic_april_2022.html");
+                $("#open_mic_march_2022").load("/concert_gallery/open_mic_march_2022.html");
+            //2020-2021
+                $("#jazz_soiree").load("/concert_gallery/jazz_soiree.html");
+                $("#sunglass_painting").load("/concert_gallery/sunglass_painting.html");
+                $("#open_mic_sept_2021").load("/concert_gallery/open_mic_sept_2021.html");
+                $("#open_mic_may_2021").load("/concert_gallery/open_mic_may_2021.html");
+                $("#jazz_show").load("/concert_gallery/jazz_show.html");
+                $("#sharkboy_lavagirl").load("/concert_gallery/sharkboy_lavagirl.html");
+                $("#never_show").load("/concert_gallery/never-show.html");
+            //2009-2010
+                $("#slow_six_lymbyc_systym").load("/concert_gallery/slow_six_lymbyc_systym.html");
+                $("#adrian_aardvark").load("/concert_gallery/adrian_aardvark.html");
+                $("#epic_fest").load("/concert_gallery/epic_fest.html");
+            //2008
+                $("#via_audio").load("/concert_gallery/via_audio.html");
+                $("#slow_six").load("/concert_gallery/slow_six.html");
+                $("#capillary_action").load("/concert_gallery/capillary_action.html");
+                $("#action_painters").load("/concert_gallery/action_painters.html");
+            //2006-2007
+                $("#TNO_April_2007").load("/concert_gallery/TNO_April_2007.html");
+                $("#felice_brothers").load("/concert_gallery/felice_brothers.html");
+            //2004-2005
+                $("#dead_science").load("/concert_gallery/dead_science.html");
+                $("#battles").load("/concert_gallery/battles.html");
+                $("#japanther").load("/concert_gallery/japanther.html");
+     }
+    
+    //js for slideshow
+      let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("display_image");
+          let dots = document.getElementsByClassName("thumbnail");
+          let captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";
+          dots[slideIndex-1].className += " active";
+          captionText.innerHTML = dots[slideIndex-1].alt;
+        } 
+</script>
 </body>
-  </body>
-      <center><p><img src="/images/constructionsmall.gif"></p></center>
+      <center><p><img src="/images/ConfettiMLP.gif" style="width:75px"></p></center>
 </html>
